@@ -1,0 +1,83 @@
+<!-- 
+Create a student registration form using HTML only that collects
+user information such as full name, email, password, age, gender,
+course and acceptance of terms and conditions. Use appropriate
+form elements including text fields, radio buttons, dropdown lists
+and checkboxes. Apply basic HTML validation using attributes
+such as required, min, max and pattern. As a challenge, prevent
+the form from being submitted if the user’s age is less than 16 and
+display an alert message saying “Registration Successful” when
+the form is submitted successfully.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>
+                <h2>Student Registration Form</h2>
+            </legend>
+            <label for="username">Username</label>
+            <br />
+            <input type="text" name="username" id="username" placeholder="username" pattern="[A-Za-z\s]{3,20}" title="Username must be of 3-20 in length and contain alphabets only!" required />
+            <br />
+            <br />
+            <label for="email">Email</label>
+            <br />
+            <input type="email" name="email" id="email" placeholder="user@example.com" required />
+            <br />
+            <br />
+            <label for="password">Password</label>
+            <br />
+            <input type="password" name="password" id="password" placeholder="!@#$%^&*" pattern=".{8,}" title="Password must be at least 8 characters long!" required />
+            <br />
+            <br />
+            <label for="age">Age</label>
+            <br />
+            <input type="number" min="1" max="120" name="age" id="age" placeholder="Age" required />
+            <br />
+            <br />
+            Gender: <br />
+            <input type="radio" id="male" name="gender" /><label for="male">Male</label>
+            <input type="radio" id="female" name="gender" /><label for="female">Female</label>
+            <input type="radio" id="other" name="gender" /><label for="other">Other</label>
+            <br />
+            <br />
+            Hobbies: <br />
+            <input type="checkbox" id="reading" name="hobbies" /><label for="reading">Reading</label>
+            <input type="checkbox" id="coding" name="hobbies" /><label for="coding">Coding</label>
+            <input type="checkbox" id="dancing" name="hobbies" /><label for="dancing">Dancing</label>
+            <br />
+            <br />
+            <label for="course"> Select Course: </label>
+            <select id="course" name="course">
+                <option value="">--Please choose an option--</option>
+                <option  value="Data Science">Data Science</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Software Engineering">Software Engineering</option>
+            </select>
+            <br />
+            <br />
+            <input type="checkbox" id="terms" required />
+            <label for="terms"> I accept the terms and conditions</label>
+            <br />
+            <br />
+
+            <input type="submit" value="Register" />
+            <br />
+            <br />
+            <input type="reset" />
+        </fieldset>
+    </form>
+</body>
+
+</html>

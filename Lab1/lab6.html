@@ -1,0 +1,137 @@
+<!-- 
+Create a multi-section webpage using semantic HTML elements
+only. The webpage should include a <header> section containing
+the title of the website, a <nav> section with navigation links,
+multiple <section> elements for different content areas, and a
+<footer> section for footer information. Each navigation link should
+use anchor tags (<a>) to scroll to its corresponding section using
+section id attributes. Ensure proper use of semantic tags,
+meaningful section headings, and well-structured HTML code.
+Navigation between sections should work correctly when the links
+are clicked. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Section Webpage</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Educational Website</h1>
+        <p>Learn about web development and semantic HTML</p>
+    </header>
+
+    <!-- Navigation Links -->
+    <nav>
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <article>
+                <h3>Who We Are</h3>
+                <p>We are a dedicated team of educators and developers committed to providing quality education in web development. Our mission is to make learning accessible and engaging for everyone.</p>
+            </article>
+            <article>
+                <h3>Our Mission</h3>
+                <p>To empower individuals with the knowledge and skills needed to succeed in the digital world. We believe in hands-on learning and practical application of concepts.</p>
+            </article>
+        </section>
+
+        <!-- Serivces -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <article>
+                <h3>Online Tutorials</h3>
+                <p>Access comprehensive tutorials covering HTML, CSS, JavaScript, and more. Our step-by-step guides make learning easy and effective.</p>
+            </article>
+            <article>
+                <h3>Code Reviews</h3>
+                <p>Get your code reviewed by experienced developers. Receive constructive feedback to improve your coding skills and best practices.</p>
+            </article>
+            <article>
+                <h3>Mentorship Programs</h3>
+                <p>Join our mentorship programs and learn from industry professionals. Get personalized guidance and career advice.</p>
+            </article>
+        </section>
+
+        <!-- Courses -->
+        <section id="courses">
+            <h2>Courses</h2>
+            <article>
+                <h3>HTML Fundamentals</h3>
+                <p>Learn the basics of HTML including semantic elements, forms, tables, and multimedia integration. Perfect for beginners starting their web development journey.</p>
+                <ul>
+                    <li>Introduction to HTML</li>
+                    <li>Semantic HTML Elements</li>
+                    <li>Forms and Input Elements</li>
+                    <li>Tables and Lists</li>
+                </ul>
+            </article>
+            <article>
+                <h3>CSS Styling</h3>
+                <p>Master CSS to create beautiful and responsive web designs. Learn about selectors, layouts, animations, and modern CSS techniques.</p>
+                <ul>
+                    <li>CSS Basics</li>
+                    <li>Flexbox and Grid</li>
+                    <li>Responsive Design</li>
+                    <li>CSS Animations</li>
+                </ul>
+            </article>
+            <article>
+                <h3>JavaScript Programming</h3>
+                <p>Dive into JavaScript and learn how to make your websites interactive. From basics to advanced concepts like asynchronous programming.</p>
+                <ul>
+                    <li>JavaScript Fundamentals</li>
+                    <li>DOM Manipulation</li>
+                    <li>Event Handling</li>
+                    <li>Asynchronous JavaScript</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <article>
+                <h3>Get In Touch</h3>
+                <p>We would love to hear from you! Reach out to us through any of the following channels:</p>
+                <address>
+                    <p><strong>Email:</strong> info@educationalwebsite.com</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Address:</strong> 123 Learning Street, Education City, EC 12345</p>
+                </address>
+            </article>
+            <article>
+                <h3>Office Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </article>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2026 Educational Website. All rights reserved.</p>
+        <p>Designed with semantic HTML for better accessibility and SEO.</p>
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#services">Services</a> |
+            <a href="#courses">Courses</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </footer>
+</body>
+</html>
