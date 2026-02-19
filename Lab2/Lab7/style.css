@@ -1,0 +1,55 @@
+input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-right: 2px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+
+input:focus {
+    background-color: #e0e0e0;
+    border: 1px solid #555;
+    outline: none;
+}
+
+body{
+    font-size: larger;
+}
+
+.button {
+  padding: 12px;
+  background-color: blue;
+  color: white;
+  border: none;
+  margin: 0px 4px !important;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: blueviolet;
+}
+
+.reset {
+  background-color: red;
+}
+
+.reset:hover {
+  background-color: orange;
+}
+
+.ageWarning {
+    padding: 8px;
+    background-color: red;
+    color: white;
+    font-size: large;
+    margin:4px 0px;
+    display:none;
+}

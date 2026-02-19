@@ -1,0 +1,220 @@
+<!-- 
+    Create a webpage that demonstrates CSS positioning and display properties. Use different elements and apply static, relative, absolute, fixed, and sticky positioning. Apply display values such as block, inline, inline-block, and none. Use z-index to show overlapping elements and apply overflow properties such as hidden, scroll and auto where necessary.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning & Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        h2 {
+            margin-top: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* positioning demo boxes */
+        .pos-container {
+            position: relative;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        /* static - default positon */
+        .static-box {
+            position: static;
+            background-color: gray;
+        }
+
+        /* relative - moved from its normal position */
+        .relative-box {
+            position: relative;
+            top: 20px;
+            left: 30px;
+            background-color: blue;
+        }
+
+        /* absolute: positioned relative to nearest positioned ancestor */
+        .absolute-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: green;
+        }
+
+        /* fixed - stays in place when scrolling */
+        .fixed-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+            font-size: 12px;
+        }
+
+        /* sticky - sticks when you scroll past it */
+        .sticky-box {
+            position: sticky;
+            top: 0;
+            background-color: orange;
+            padding: 10px;
+            color: white;
+        }
+
+        /* display property demos */
+        .block-el {
+            display: block;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .inline-el {
+            display: inline;
+            background-color: lightgreen;
+            padding: 5px;
+        }
+        .inline-block-el {
+            display: inline-block;
+            width: 120px;
+            height: 50px;
+            background-color: lightcoral;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .none-el {
+            display: none;
+            /* this elemnt wont show up at all */
+        }
+
+        /* z-index demo - overlaping elements */
+        .z-container {
+            position: relative;
+            height: 150px;
+        }
+        .z-box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .z1 {
+            background-color: purple;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .z2 {
+            background-color: teal;
+            top: 30px;
+            left: 30px;
+            z-index: 2;
+        }
+        .z3 {
+            background-color: maroon;
+            top: 60px;
+            left: 60px;
+            z-index: 3;
+        }
+
+        /* overflow demos */
+        .overflow-box {
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        .overflow-scroll {
+            overflow: scroll;
+        }
+        .overflow-auto {
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- fixed element - will stay in corner -->
+    <div class="fixed-box">Fixed</div>
+
+    <h1>CSS Positioning & Display</h1>
+
+    <!-- sticky header demo -->
+    <div class="sticky-box">this is a sticky header - scroll down to see it stick</div>
+
+    <h2>Positioning</h2>
+    <div class="pos-container">
+        <div class="box static-box">Static</div>
+        <div class="box relative-box">Relative</div>
+        <div class="box absolute-box">Absolute</div>
+    </div>
+
+    <h2>Display Property</h2>
+    <p>Block elements:</p>
+    <div class="block-el">Block 1</div>
+    <div class="block-el">Block 2</div>
+
+    <p>inline elements:</p>
+    <span class="inline-el">Inline 1</span>
+    <span class="inline-el">Inline 2</span>
+    <span class="inline-el">Inline 3</span>
+
+    <p>Inline-block elementes:</p>
+    <div class="inline-block-el">Box 1</div>
+    <div class="inline-block-el">Box 2</div>
+    <div class="inline-block-el">Box 3</div>
+
+    <!-- this one is hidden using display: none -->
+    <div class="none-el">you cant see me</div>
+
+    <h2>Z-Index (Overlapping)</h2>
+    <div class="z-container">
+        <div class="z-box z1">z: 1</div>
+        <div class="z-box z2">z: 2</div>
+        <div class="z-box z3">z: 3</div>
+    </div>
+
+    <h2>Overflow</h2>
+    <div class="overflow-box overflow-hidden">
+        <strong>overflow: hidden</strong><br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. this text will be cut off when it overflows the container.
+    </div>
+    <div class="overflow-box overflow-scroll">
+        <strong>overflow: scroll</strong><br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. always shows scrollbars even if content fits. labalaba 13241234 testing mic tewsting scroll ho na bhai, bhaena kya. text length pugena
+    </div>
+    <div class="overflow-box overflow-auto">
+        <strong>overflow: auto</strong><br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. only shows scrollbar when needed.
+    </div>
+
+    <!-- some extra space so you can scroll and see sticky/fixed behavior -->
+    <div style="height: 500px;"></div>
+
+</body>
+</html>
