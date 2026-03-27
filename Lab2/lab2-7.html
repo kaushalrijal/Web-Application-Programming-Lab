@@ -1,0 +1,319 @@
+<!--
+    student registration form. collects username, email, password,
+    age, gender, course and terms acceptance. css styled form with
+    validation, focus highlight. shows warning if age < 16.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2D65E2;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* each form field group */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        /* asterisk for required */
+        .required {
+            color: red;
+        }
+
+        /* text inputs and dropdown */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9em;
+            box-sizing: border-box;
+        }
+
+        /* focus highlight */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #2D65E2;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(45, 101, 226, 0.2);
+        }
+
+        .hint {
+            font-size: 0.78em;
+            color: #999;
+            margin-top: 3px;
+        }
+
+        /* radio buttons and checkboxes */
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        /* age warning box - hidden by default */
+        .age-alert {
+            display: none;
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-top: 8px;
+        }
+
+        /* submit button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #2D65E2;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* hover and focus on submit */
+        button[type="submit"]:hover {
+            background-color: #1a4cbf;
+        }
+
+        button[type="submit"]:focus {
+            outline: 3px solid rgba(45, 101, 226, 0.4);
+        }
+
+        /* custom error messages */
+        .error-msg {
+            color: #e74c3c;
+            font-size: 0.8em;
+            margin-top: 4px;
+            display: none;
+        }
+        .error-msg.show {
+            display: block;
+        }
+        /* red border on invalid fields */
+        .input-error {
+            border-color: #e74c3c !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Student Registration</h1>
+
+        <form id="regForm" novalidate onsubmit="return handleSubmit()">
+
+            <!-- username -->
+            <div class="form-group">
+                <label>Username <span class="required">*</span></label>
+                <input type="text" name="username" id="username" placeholder="Enter username" required minlength="3">
+                <p class="error-msg" id="usernameError">Username must be at least 3 characters</p>
+                <p class="hint">minimum 3 characters</p>
+            </div>
+
+            <!-- email -->
+            <div class="form-group">
+                <label>Email <span class="required">*</span></label>
+                <input type="email" name="email" id="email" placeholder="you@example.com" required>
+                <p class="error-msg" id="emailError">Please enter a valid email</p>
+            </div>
+
+            <!-- password -->
+            <div class="form-group">
+                <label>Password <span class="required">*</span></label>
+                <input type="password" name="password" id="password" placeholder="Enter password" required minlength="6">
+                <p class="error-msg" id="passwordError">Password must be at least 6 characters</p>
+                <p class="hint">minimum 6 characters</p>
+            </div>
+
+            <!-- age -->
+            <div class="form-group">
+                <label>Age <span class="required">*</span></label>
+                <input type="number" name="age" id="ageInput" placeholder="Your age" required min="1" max="120">
+                <!-- warning that shows up when age is under 16 -->
+                <div class="age-alert" id="ageAlert">
+                    You must be at least 16 years old to register.
+                </div>
+            </div>
+
+            <!-- gender -->
+            <div class="form-group">
+                <label>Gender <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+            </div>
+
+            <!-- course dropdown -->
+            <div class="form-group">
+                <label>Course <span class="required">*</span></label>
+                <select name="course" id="course" required>
+                    <option value="">-- Select a course --</option>
+                    <option value="bce">Computer Engineering</option>
+                    <option value="bcs">Computer Science</option>
+                    <option value="bee">Electrical Engineering</option>
+                    <option value="bme">Mechanical Engineering</option>
+                    <option value="bce-civil">Civil Engineering</option>
+                </select>
+                <p class="error-msg" id="courseError">Please select a course</p>
+            </div>
+
+            <!-- terms checkbox -->
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="terms" id="terms" required>
+                        I accept the terms and conditions <span class="required">*</span>
+                    </label>
+                </div>
+                <p class="error-msg" id="termsError">You must accept the terms</p>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // show/hide age warning
+        var ageInput = document.getElementById('ageInput');
+        var ageAlert = document.getElementById('ageAlert');
+
+        ageInput.addEventListener('input', function () {
+            var age = parseInt(this.value);
+            if (age > 0 && age < 16) {
+                ageAlert.style.display = 'block';
+            } else {
+                ageAlert.style.display = 'none';
+            }
+        });
+
+        // clear error when user starts typing
+        document.querySelectorAll('input, select').forEach(function(el) {
+            el.addEventListener('input', function() {
+                this.classList.remove('input-error');
+                var errorEl = document.getElementById(this.id + 'Error');
+                if (errorEl) errorEl.classList.remove('show');
+            });
+        });
+
+        // custom validation on submit
+        function handleSubmit() {
+            var valid = true;
+
+            // username
+            var username = document.getElementById('username');
+            if (username.value.length < 3) {
+                username.classList.add('input-error');
+                document.getElementById('usernameError').classList.add('show');
+                valid = false;
+            }
+
+            // email
+            var email = document.getElementById('email');
+            if (!email.value || !email.value.includes('@')) {
+                email.classList.add('input-error');
+                document.getElementById('emailError').classList.add('show');
+                valid = false;
+            }
+
+            // password
+            var password = document.getElementById('password');
+            if (password.value.length < 6) {
+                password.classList.add('input-error');
+                document.getElementById('passwordError').classList.add('show');
+                valid = false;
+            }
+
+            // age
+            var age = parseInt(ageInput.value);
+            if (!ageInput.value || age < 1) {
+                ageInput.classList.add('input-error');
+                valid = false;
+            }
+            if (age > 0 && age < 16) {
+                ageAlert.style.display = 'block';
+                valid = false;
+            }
+
+            // gender
+            var genderSelected = document.querySelector('input[name="gender"]:checked');
+            if (!genderSelected) {
+                valid = false;
+            }
+
+            // course
+            var course = document.getElementById('course');
+            if (!course.value) {
+                course.classList.add('input-error');
+                document.getElementById('courseError').classList.add('show');
+                valid = false;
+            }
+
+            // terms
+            var terms = document.getElementById('terms');
+            if (!terms.checked) {
+                document.getElementById('termsError').classList.add('show');
+                valid = false;
+            }
+
+            return valid;
+        }
+    </script>
+
+</body>
+</html>

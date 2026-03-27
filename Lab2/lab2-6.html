@@ -1,0 +1,188 @@
+<!--
+    Advanced CSS - pseudo-classes (hover, focus, active),
+    pseudo-elements (before, after), transitions, transforms,
+    keyframe animations, css variables
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+        h1 { color: #2D65E2; margin-bottom: 30px; }
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 14px;
+        }
+        section { margin-bottom: 20px; }
+
+        /* buttons - hover, active, focus */
+        .btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            background: #2D65E2;
+            margin-right: 8px;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #1a4cbf; }
+        .btn:active { background: #0f3a9e; }
+        .btn:focus { outline: 3px solid rgba(45,101,226,0.4); }
+        .btn-red { background: #e74c3c; }
+        .btn-red:hover { background: #c0392b; }
+
+        /* input focus */
+        .demo-input {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            width: 280px;
+        }
+        .demo-input:focus {
+            border-color: #2D65E2;
+            outline: none;
+        }
+
+        /* pseudo-elements - before and after */
+        .fancy-heading {
+            position: relative;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .fancy-heading::before {
+            content: ">> ";
+            color: #2D65E2;
+        }
+        .fancy-heading::after {
+            content: " <<";
+            color: #2D65E2;
+        }
+
+        /* tooltip using ::after */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            background: #2D65E2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .tooltip::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .tooltip:hover::after { opacity: 1; }
+
+        /* transitions and transforms */
+        .boxes {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .t-box {
+            width: 120px;
+            height: 80px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            font-size: 0.85em;
+            color: #888;
+        }
+        .t-box:hover.scale { transform: scale(1.15); }
+        .t-box:hover.rotate { transform: rotate(10deg); }
+        .t-box:hover.move { transform: translateY(-8px); }
+
+        /* gotta separate the selectors */
+        .scale:hover { transform: scale(1.15); }
+        .rotate:hover { transform: rotate(10deg); }
+        .move:hover { transform: translateY(-8px); }
+
+        /* simple keyframe animation */
+        .bounce-box {
+            width: 50px;
+            height: 50px;
+            background: #2D65E2;
+            border-radius: 4px;
+            animation: bounce 1s ease infinite;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Advanced CSS</h1>
+
+    <!-- pseudo classes -->
+    <h2>Pseudo-Classes (:hover, :active, :focus)</h2>
+    <section>
+        <button class="btn">Hover Me</button>
+        <button class="btn btn-red">Click Me</button>
+        <input type="text" class="demo-input" placeholder="Click to see :focus">
+    </section>
+
+    <!-- pseudo elements -->
+    <h2>Pseudo-Elements (::before, ::after)</h2>
+    <section>
+        <p class="fancy-heading">this heading has ::before and ::after</p>
+        <br><br>
+        <span class="tooltip" data-tip="Hello!">Hover for tooltip</span>
+        <span class="tooltip" data-tip="Made with ::after">Another one</span>
+    </section>
+
+    <!-- transitions and transforms -->
+    <h2>Transitions & Transforms</h2>
+    <div class="boxes">
+        <div class="t-box scale">scale</div>
+        <div class="t-box rotate">rotate</div>
+        <div class="t-box move">translate</div>
+    </div>
+
+    <!-- animations -->
+    <h2>Keyframe Animations</h2>
+    <section>
+        <div class="bounce-box"></div>
+    </section>
+
+</body>
+</html>

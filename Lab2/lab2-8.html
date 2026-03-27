@@ -1,0 +1,234 @@
+<!--
+    profile card with CSS styling - based on the Lab1 html-only version.
+    uses flexbox for layout, borders, shadows, spacing, bg colors.
+    hover effects and subtle animations.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaushal Rijal - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rubik', Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 30px 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* left side */
+        .sidebar {
+            background: #1a1a2e;
+            color: #ccc;
+            padding: 30px 20px;
+            width: 250px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2D65E2;
+            margin-bottom: 14px;
+            transition: transform 0.3s;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        .sidebar .name {
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        .sidebar .role {
+            color: #2D65E2;
+            font-size: 0.85em;
+            font-style: italic;
+            margin: 4px 0;
+        }
+        .sidebar .school {
+            font-size: 0.75em;
+            color: #888;
+            margin-bottom: 16px;
+        }
+        .sidebar hr {
+            border: none;
+            border-top: 1px solid #333;
+            margin: 12px 0;
+        }
+        .sidebar a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            padding: 6px 8px;
+            font-size: 0.85em;
+            border-radius: 4px;
+        }
+        .sidebar a:hover {
+            color: white;
+            background: #333;
+        }
+
+        /* right content */
+        .content {
+            padding: 28px;
+            flex: 1;
+        }
+        .section {
+            margin-bottom: 22px;
+        }
+        .section-title {
+            color: #2D65E2;
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .section p {
+            color: #555;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+        .section ul {
+            padding-left: 18px;
+            color: #555;
+            font-size: 0.85em;
+        }
+        .section li { margin-bottom: 3px; }
+
+        /* skill tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .tag {
+            padding: 4px 12px;
+            border-radius: 14px;
+            font-size: 0.75em;
+            color: white;
+        }
+
+        /* project entries */
+        .project {
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            color: #555;
+        }
+        .project strong { color: #333; }
+        .project a {
+            color: #2D65E2;
+            text-decoration: none;
+        }
+        .project a:hover { text-decoration: underline; }
+
+        /* contact */
+        .contact a {
+            color: #2D65E2;
+            text-decoration: none;
+        }
+        .contact a:hover { text-decoration: underline; }
+
+        /* responsive */
+        @media (max-width: 650px) {
+            .card { flex-direction: column; }
+            .sidebar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <div class="sidebar">
+            <img src="https://kaushalrijal.com.np/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsym.290b0cbd.jpg&w=640&q=75" alt="Kaushal Rijal" class="profile-img">
+            <div class="name">Kaushal Rijal</div>
+            <div class="role">Computer Engineer</div>
+            <div class="school">Undergraduate, IOE TU</div>
+            <hr>
+            <a href="https://www.linkedin.com/in/kaushal-rijal-772902213" target="_blank">LinkedIn</a>
+            <a href="https://github.com/kaushalrijal" target="_blank">GitHub</a>
+            <a href="https://twitter.com/kaushalrijal" target="_blank">Twitter</a>
+            <a href="https://m.facebook.com/rijalkaushal" target="_blank">Facebook</a>
+            <a href="https://instagram.com/kaushalSym" target="_blank">Instagram</a>
+        </div>
+
+        <div class="content">
+
+            <div class="section">
+                <div class="section-title">About Me</div>
+                <p>Hello! I'm Kaushal Rijal, an undergraduate Computer Engineering student at IOE, Purwanchal Campus, TU based in Dharan, Nepal. I love building things and exploring what software development has to offer. Started programming at twelve and haven't stopped since.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Research Interests</div>
+                <ul>
+                    <li>Software Engineering</li>
+                    <li>AI & Machine Learning</li>
+                    <li>System Internals & Low-level Programming</li>
+                    <li>Compiler Theory</li>
+                    <li>Full Stack Development</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Skills</div>
+                <div class="tags">
+                    <span class="tag" style="background:#2D65E2;">Next.js</span>
+                    <span class="tag" style="background:#61dafb; color:#000;">React</span>
+                    <span class="tag" style="background:#68a063;">Node.js</span>
+                    <span class="tag" style="background:#4db33d;">MongoDB</span>
+                    <span class="tag" style="background:#306998;">Python</span>
+                    <span class="tag" style="background:#00599c;">C/C++</span>
+                    <span class="tag" style="background:#f7df1e; color:#000;">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Projects</div>
+                <div class="project">
+                    <strong>Lipi</strong> — Nepali-syntax programming language in C++<br>
+                    <a href="https://github.com/kaushalrijal/Lipi" target="_blank">GitHub</a>
+                </div>
+                <div class="project">
+                    <strong>eKommerce</strong> — E-commerce site (Next.JS)<br>
+                    <a href="https://github.com/kaushalrijal/eKommerce" target="_blank">GitHub</a> | <a href="https://e-kommerce.vercel.app/" target="_blank">Live</a>
+                </div>
+                <div class="project">
+                    <strong>Kinema</strong> — Movie streaming site<br>
+                    <a href="https://github.com/kaushalrijal/Kinema" target="_blank">GitHub</a> | <a href="https://kinematv.vercel.app/" target="_blank">Live</a>
+                </div>
+                <div class="project">
+                    <strong>Veloce</strong> — Version control system in C<br>
+                    <a href="https://github.com/kaushalrijal/Veloce" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="section contact">
+                <div class="section-title">Contact</div>
+                <p><strong>Email:</strong> <a href="mailto:kaushalrijal091@gmail.com">kaushalrijal091@gmail.com</a></p>
+                <p><strong>Website:</strong> <a href="https://kaushalrijal.com.np" target="_blank">kaushalrijal.com.np</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Helvetica, "Segoe UI", sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        .page {
+            max-width: 860px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 0 0 10px;
+        }
+
+        .top-box {
+            padding: 28px 24px 10px;
+        }
+
+        .top-box h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        .content {
+            padding: 0 24px 24px;
+        }
+
+        .form-area {
+            padding: 10px 0 0;
+        }
+
+        .row {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .full {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #cfcfcf;
+            font-size: 14px;
+            box-sizing: border-box;
+            background: #fff;
+        }
+
+        .radio-box,
+        .terms-box {
+            border: 1px solid #cfcfcf;
+            padding: 12px;
+            background: #fff;
+        }
+
+        .radio-box label,
+        .terms-box label {
+            display: inline-block;
+            margin-right: 18px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            text-transform: none;
+        }
+
+        .radio-box input,
+        .terms-box input {
+            width: auto;
+            margin-right: 6px;
+        }
+
+        .submit-btn {
+            background: #1f1f22;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .error {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #c62828;
+            min-height: 14px;
+        }
+
+        .invalid {
+            border-color: #c62828 !important;
+            background: #fff5f5;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                margin: 16px;
+            }
+
+            .content {
+                padding: 0 14px 14px;
+            }
+
+            .top-box {
+                padding: 20px 14px 8px;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 0;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="top-box">
+            <h1>Registration</h1>
+        </div>
+
+        <div class="content">
+            <div class="form-area">
+                <form id="regForm">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username">
+                            <div class="error" id="usernameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname">
+                            <div class="error" id="fullnameError"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select id="role">
+                                <option value="">Select role</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                            </select>
+                            <div class="error" id="roleError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                            <div class="error" id="emailError"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password">
+                            <div class="error" id="passwordError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword">
+                            <div class="error" id="confirmPasswordError"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" min="1">
+                            <div class="error" id="ageError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            <select id="course">
+                                <option value="">Select course</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Networking">Networking</option>
+                            </select>
+                            <div class="error" id="courseError"></div>
+                        </div>
+                    </div>
+
+                    <div class="full">
+                        <label>Gender</label>
+                        <div class="radio-box" id="genderBox">
+                            <label><input type="radio" name="gender" value="Male"> Male</label>
+                            <label><input type="radio" name="gender" value="Female"> Female</label>
+                        </div>
+                        <div class="error" id="genderError"></div>
+                    </div>
+
+                    <div class="full">
+                        <div class="terms-box" id="termsBox">
+                            <label><input type="checkbox" id="terms"> I accept terms and conditions</label>
+                        </div>
+                        <div class="error" id="termsError"></div>
+                    </div>
+
+                    <button class="submit-btn" type="submit">Submit Registration</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById("regForm");
+
+        function setError(id, text) {
+            document.getElementById(id).innerText = text;
+        }
+
+        function clearErrors() {
+            var errors = document.querySelectorAll(".error");
+            var fields = document.querySelectorAll("input, select, .radio-box, .terms-box");
+            var i;
+
+            for (i = 0; i < errors.length; i++) {
+                errors[i].innerText = "";
+            }
+
+            for (i = 0; i < fields.length; i++) {
+                fields[i].classList.remove("invalid");
+            }
+        }
+
+        function markInvalid(element) {
+            element.classList.add("invalid");
+        }
+
+        function getGender() {
+            var genders = document.getElementsByName("gender");
+            var i;
+
+            for (i = 0; i < genders.length; i++) {
+                if (genders[i].checked) {
+                    return genders[i].value;
+                }
+            }
+
+            return "";
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            clearErrors();
+
+            var username = document.getElementById("username");
+            var fullname = document.getElementById("fullname");
+            var role = document.getElementById("role");
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var confirmPassword = document.getElementById("confirmPassword");
+            var age = document.getElementById("age");
+            var course = document.getElementById("course");
+            var terms = document.getElementById("terms");
+            var gender = getGender();
+            var valid = true;
+
+            if (username.value.trim() === "") {
+                setError("usernameError", "Username is required");
+                markInvalid(username);
+                valid = false;
+            }
+
+            if (fullname.value.trim() === "") {
+                setError("fullnameError", "Full name is required");
+                markInvalid(fullname);
+                valid = false;
+            }
+
+            if (role.value === "") {
+                setError("roleError", "Please select a role");
+                markInvalid(role);
+                valid = false;
+            }
+
+            if (email.value.trim() === "") {
+                setError("emailError", "Email is required");
+                markInvalid(email);
+                valid = false;
+            } else if (role.value === "Student" && !email.value.endsWith("@student.edu.np")) {
+                setError("emailError", "Student email must end with @student.edu.np");
+                markInvalid(email);
+                valid = false;
+            } else if (role.value === "Teacher" && !email.value.endsWith("@tutor.edu.np")) {
+                setError("emailError", "Teacher email must end with @tutor.edu.np");
+                markInvalid(email);
+                valid = false;
+            }
+
+            if (password.value === "") {
+                setError("passwordError", "Password is required");
+                markInvalid(password);
+                valid = false;
+            }
+
+            if (confirmPassword.value === "") {
+                setError("confirmPasswordError", "Confirm password is required");
+                markInvalid(confirmPassword);
+                valid = false;
+            } else if (password.value !== confirmPassword.value) {
+                setError("confirmPasswordError", "Passwords do not match");
+                markInvalid(confirmPassword);
+                valid = false;
+            }
+
+            if (age.value === "") {
+                setError("ageError", "Age is required");
+                markInvalid(age);
+                valid = false;
+            }
+
+            if (course.value === "") {
+                setError("courseError", "Please select a course");
+                markInvalid(course);
+                valid = false;
+            }
+
+            if (gender === "") {
+                setError("genderError", "Please select gender");
+                markInvalid(document.getElementById("genderBox"));
+                valid = false;
+            }
+
+            if (!terms.checked) {
+                setError("termsError", "Please accept the terms");
+                markInvalid(document.getElementById("termsBox"));
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Registration submitted successfully");
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>

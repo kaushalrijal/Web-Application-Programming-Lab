@@ -1,0 +1,174 @@
+<!--
+    Student info table - at least 7 rows of data. styled with
+    borders, padding, spacing, bg colors, font styling.
+    alternate row coloring, hover effects, caption, responsive.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        caption {
+            background: #2D65E2;
+            color: white;
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        th {
+            background: #333;
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 0.85em;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9em;
+        }
+
+        /* alternate rows */
+        tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        /* hover */
+        tbody tr:hover {
+            background: #e8f0fe;
+        }
+
+        /* email links */
+        td a {
+            color: #2D65E2;
+            text-decoration: none;
+        }
+        td a:hover { text-decoration: underline; }
+
+        tfoot td {
+            background: #f5f5f5;
+            color: #888;
+            font-size: 0.8em;
+            padding: 10px 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <table>
+            <caption>Student Information</caption>
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Program</th>
+                    <th>Semester</th>
+                    <th>GPA</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>Kaushal Rijal</td>
+                    <td>Computer Engineering</td>
+                    <td>3rd</td>
+                    <td>3.85</td>
+                    <td><a href="mailto:kaushal@mail.com">kaushal@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>Anish Sharma</td>
+                    <td>Computer Science</td>
+                    <td>5th</td>
+                    <td>3.72</td>
+                    <td><a href="mailto:anish@mail.com">anish@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>Priya Thapa</td>
+                    <td>Electrical Engineering</td>
+                    <td>7th</td>
+                    <td>3.91</td>
+                    <td><a href="mailto:priya@mail.com">priya@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>Rohan Poudel</td>
+                    <td>Mechanical Engineering</td>
+                    <td>4th</td>
+                    <td>3.45</td>
+                    <td><a href="mailto:rohan@mail.com">rohan@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>Sita Karki</td>
+                    <td>Civil Engineering</td>
+                    <td>6th</td>
+                    <td>3.68</td>
+                    <td><a href="mailto:sita@mail.com">sita@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>06</td>
+                    <td>Bikash Rai</td>
+                    <td>Computer Engineering</td>
+                    <td>2nd</td>
+                    <td>3.12</td>
+                    <td><a href="mailto:bikash@mail.com">bikash@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>07</td>
+                    <td>Manisha Gurung</td>
+                    <td>Computer Science</td>
+                    <td>3rd</td>
+                    <td>3.88</td>
+                    <td><a href="mailto:manisha@mail.com">manisha@mail.com</a></td>
+                </tr>
+                <tr>
+                    <td>08</td>
+                    <td>Dipesh Adhikari</td>
+                    <td>Electrical Engineering</td>
+                    <td>8th</td>
+                    <td>3.50</td>
+                    <td><a href="mailto:dipesh@mail.com">dipesh@mail.com</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">Total: 8 students</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</body>
+</html>

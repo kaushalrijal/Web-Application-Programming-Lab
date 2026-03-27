@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: black;
+        }
+
+        .page {
+            padding: 10px 10px 40px;
+        }
+
+        h1 {
+            font-family: "Times New Roman", serif;
+            font-size: 48px;
+            margin-bottom: 35px;
+        }
+
+        .form-row {
+            margin-bottom: 40px;
+        }
+
+        input {
+            width: 275px;
+            padding: 5px 7px;
+            font-size: 18px;
+            margin-right: 4px;
+        }
+
+        button {
+            padding: 7px 18px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #666;
+            padding: 28px 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        th {
+            font-family: "Times New Roman", serif;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>Dynamic Table</h1>
+
+        <div class="form-row">
+            <input type="text" id="name" placeholder="Name">
+            <input type="number" id="age" placeholder="Age">
+            <button onclick="addRow()">Add Row</button>
+        </div>
+
+        <table id="myTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Ram</td>
+                <td>31</td>
+                <td><button onclick="deleteRow(this)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function addRow() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+
+            if (name === "" || age === "") {
+                alert("Please enter name and age");
+                return;
+            }
+
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            cell1.innerHTML = name;
+            cell2.innerHTML = age;
+            cell3.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+</body>
+</html>

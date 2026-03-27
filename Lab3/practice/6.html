@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Template Literal Injection</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+  const user = {
+    name: "Kaushal",
+    faculty: "BCT",
+    skills: ["C++", "JavaScript", "Machine Learning"]
+  };
+
+  const template = `
+    <div class="card">
+      <h2>${user.name}</h2>
+      <p>Faculty: ${user.faculty}</p>
+      <ul>
+        ${user.skills.map(skill => `<li>${skill}</li>`).join("")}
+      </ul>
+    </div>
+  `;
+
+  document.getElementById("app").innerHTML = template;
+</script>
+
+</body>
+</html>

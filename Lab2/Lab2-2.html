@@ -1,0 +1,181 @@
+<!--
+    Text styling and formatting - different text colors, background
+    colors, font families, sizes, styles, weights and text alignment.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* heading styles - different fonts, colors, sizes */
+        h1 {
+            font-family: Georgia, serif;
+            color: #2D65E2;
+            font-size: 2.2em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+            font-size: 1.5em;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-family: Verdana, sans-serif;
+            color: #27ae60;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* different paragraph styles */
+        .serif-text {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.1em;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .mono-text {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .bold-text {
+            font-weight: bold;
+            color: #222;
+        }
+
+        .italic-text {
+            font-style: italic;
+            color: #666;
+        }
+
+        .light-text {
+            font-weight: 300;
+            font-size: 1.05em;
+            color: #777;
+        }
+
+        /* text alignment examples */
+        .left { text-align: left; }
+        .center { text-align: center; }
+        .right { text-align: right; }
+        .justify { text-align: justify; }
+
+        /* background color highlights */
+        .highlight-blue {
+            background-color: #dbeafe;
+            padding: 12px;
+            border-radius: 4px;
+            color: #1e40af;
+        }
+
+        .highlight-green {
+            background-color: #d1fae5;
+            padding: 12px;
+            border-radius: 4px;
+            color: #065f46;
+        }
+
+        .highlight-yellow {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-radius: 4px;
+            color: #92400e;
+        }
+
+        /* decoration and transform */
+        .underline { text-decoration: underline; }
+        .uppercase { text-transform: uppercase; }
+        .spaced { letter-spacing: 3px; }
+
+        /* section spacing */
+        section {
+            margin-bottom: 24px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text Styling & Formatting</h1>
+
+    <!-- font families -->
+    <h2>Font Families</h2>
+    <section>
+        <p class="serif-text">This paragraph uses a serif font (Georgia). Serif fonts have small strokes at the end of letters.</p>
+        <p class="mono-text">This paragraph uses a monospace font (Courier New). Every character takes up the same width.</p>
+        <p>This paragraph uses the default sans-serif font (Arial). Clean and easy to read on screens.</p>
+    </section>
+
+    <!-- font sizes weights and styles -->
+    <h2>Font Sizes, Weights & Styles</h2>
+    <section>
+        <p class="bold-text">This text is bold (font-weight: bold)</p>
+        <p class="italic-text">This text is italic (font-style: italic)</p>
+        <p class="light-text">This text has a lighter weight (font-weight: 300)</p>
+        <p style="font-size: 1.4em;">Larger font size (1.4em)</p>
+        <p style="font-size: 0.8em;">Smaller font size (0.8em)</p>
+    </section>
+
+    <!-- text colors -->
+    <h2>Text Colors</h2>
+    <section>
+        <p style="color: #2D65E2;">Blue text (#2D65E2)</p>
+        <p style="color: #e74c3c;">Red text (#e74c3c)</p>
+        <p style="color: #27ae60;">Green text (#27ae60)</p>
+        <p style="color: #8e44ad;">Purple text (#8e44ad)</p>
+        <p style="color: #e67e22;">Orange text (#e67e22)</p>
+    </section>
+
+    <!-- background colors -->
+    <h2>Background Colors</h2>
+    <section>
+        <p class="highlight-blue">Blue background with dark blue text</p>
+        <p class="highlight-green">Green background with dark green text</p>
+        <p class="highlight-yellow">Yellow background with brown text</p>
+    </section>
+
+    <!-- text alignment -->
+    <h2>Text Alignment</h2>
+    <section>
+        <p class="left">This text is left-aligned (default)</p>
+        <p class="center">This text is centered</p>
+        <p class="right">This text is right-aligned</p>
+        <p class="justify">This text is justified. It stretches each line so that both the left and right edges are straight. This works best when there is enough text to fill the line, like in a newspaper or a book layout.</p>
+    </section>
+
+    <!-- text decoration and transform -->
+    <h3>Other Properties</h3>
+    <section>
+        <p class="underline">Underlined text (text-decoration: underline)</p>
+        <p class="uppercase">this was typed in lowercase but displays in uppercase</p>
+        <p class="spaced">Spaced out letters (letter-spacing: 3px)</p>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Toggle</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 70px;
+        }
+
+        h1 {
+            font-size: 44px;
+            margin-bottom: 55px;
+        }
+
+        .input-area {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        input {
+            width: 520px;
+            padding: 18px 20px;
+            font-size: 28px;
+            border: 2px solid #aaa;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 120px;
+            height: 84px;
+            border: 2px solid #aaa;
+            background: #f2f2f2;
+            cursor: pointer;
+        }
+
+        button img {
+            width: 38px;
+            height: 38px;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Show / Hide Toggle</h1>
+
+        <div class="input-area">
+            <input type="password" id="password" value="mypassword">
+            <button id="toggleBtn">
+                <img id="toggleIcon" src="icons/show.png" alt="Show password">
+            </button>
+        </div>
+
+        <p id="statusText">Password is Hidden</p>
+    </div>
+
+    <script>
+        var password = document.getElementById("password");
+        var toggleBtn = document.getElementById("toggleBtn");
+        var toggleIcon = document.getElementById("toggleIcon");
+        var statusText = document.getElementById("statusText");
+
+        toggleBtn.addEventListener("click", function () {
+            if (password.type === "password") {
+                password.type = "text";
+                toggleIcon.src = "icons/hidden.png";
+                toggleIcon.alt = "Hide password";
+                statusText.innerText = "Password is Visible";
+            } else {
+                password.type = "password";
+                toggleIcon.src = "icons/show.png";
+                toggleIcon.alt = "Show password";
+                statusText.innerText = "Password is Hidden";
+            }
+        });
+    </script>
+</body>
+</html>
